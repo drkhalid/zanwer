@@ -55,6 +55,7 @@ class IndexPage extends Component {
     handleDelete = id =>{
       Firestore.collection('data').doc(id).delete()
     }
+    
     handleEdit = (e) => {
       e.preventDefault()
 
@@ -67,7 +68,7 @@ class IndexPage extends Component {
   render (){
     return (
       <Layout> 
-        <Button onClick={()=>this.setState({formOpen:!this.state.formOpen})}>زیاد كردن</Button>
+        <Button onClick={()=>this.setState({formOpen:!this.state.formOpen, newItem:{place:"",date:"",owe:"",theyOwe:"",note:""},editing:false})}>{this.state.formOpen?"داخستن":"زیاد كردن"}</Button>
         <div className="row my-4">
           <div className="col-12">
             <Collapse isOpen={this.state.formOpen}>
