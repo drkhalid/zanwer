@@ -120,38 +120,40 @@ class IndexPage extends Component {
           </div>
         </div>
         
-        <Table striped>
-        <thead className="thead-dark">
-          <tr>
-            <th>فرمان</th>
-            <th>تێبینی</th>
-            <th>قه‌ردارمانن</th>
-            <th>قه‌ردارین</th>
-            <th>به‌روار</th>
-            <th>ناوی شوێن</th>
-            <th>ژماره‌</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.state.data.map((x,i)=>(
-            <tr key={x.id}>
-             <td>
-               <ButtonGroup>
-                 <Button onClick={()=>this.handleDelete(x.id)} className="btn-danger">Delete</Button>
-                 <Button onClick={()=>this.setState({newItem:x,formOpen:true,
-        editing:true,currentEdit:x.id})} className="btn-warning">Edit</Button>
-               </ButtonGroup>
-             </td>
-             <td>{x.note}</td>
-             <td>{x.theyOwe}</td>
-             <td>{x.owe}</td>
-             <td>{x.date}</td>
-             <td>{x.place}</td>
-             <td>{i+1}</td>
-           </tr>
-          ))}
-        </tbody>
-      </Table>      
+        <div className="table-responsive">
+          <Table striped>
+          <thead className="thead-dark">
+            <tr>
+              <th>فرمان</th>
+              <th>تێبینی</th>
+              <th>قه‌ردارمانن</th>
+              <th>قه‌ردارین</th>
+              <th>به‌روار</th>
+              <th>ناوی شوێن</th>
+              <th>ژماره‌</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.data.map((x,i)=>(
+              <tr key={x.id}>
+               <td>
+                 <ButtonGroup>
+                   <Button onClick={()=>this.handleDelete(x.id)} className="btn-danger">Delete</Button>
+                   <Button onClick={()=>this.setState({newItem:x,formOpen:true,
+          editing:true,currentEdit:x.id})} className="btn-warning">Edit</Button>
+                 </ButtonGroup>
+               </td>
+               <td>{x.note}</td>
+               <td>{x.theyOwe}</td>
+               <td>{x.owe}</td>
+               <td>{x.date}</td>
+               <td>{x.place}</td>
+               <td>{i+1}</td>
+             </tr>
+            ))}
+          </tbody>
+        </Table>   
+        </div>   
       </Layout>
     )
   }
